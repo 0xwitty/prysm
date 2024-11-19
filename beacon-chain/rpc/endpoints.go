@@ -200,6 +200,15 @@ func (s *Service) validatorEndpoints(
 			methods: []string{http.MethodGet},
 		},
 		{
+			template: "/eth/v2/validator/aggregate_attestation",
+			name:     namespace + ".GetAggregateAttestationV2",
+			middleware: []middleware.Middleware{
+				middleware.AcceptHeaderHandler([]string{api.JsonMediaType}),
+			},
+			handler: server.GetAggregateAttestationV2,
+			methods: []string{http.MethodGet},
+		},
+		{
 			template: "/eth/v1/validator/contribution_and_proofs",
 			name:     namespace + ".SubmitContributionAndProofs",
 			middleware: []middleware.Middleware{
@@ -601,7 +610,7 @@ func (s *Service) beaconEndpoints(
 			middleware: []middleware.Middleware{
 				middleware.AcceptHeaderHandler([]string{api.JsonMediaType}),
 			},
-			handler: server.GetBlockAttestations,
+			handler: server.GetBlockAttestationsV2,
 			methods: []string{http.MethodGet},
 		},
 		{
@@ -632,6 +641,15 @@ func (s *Service) beaconEndpoints(
 			methods: []string{http.MethodGet},
 		},
 		{
+			template: "/eth/v2/beacon/pool/attestations",
+			name:     namespace + ".ListAttestationsV2",
+			middleware: []middleware.Middleware{
+				middleware.AcceptHeaderHandler([]string{api.JsonMediaType}),
+			},
+			handler: server.ListAttestationsV2,
+			methods: []string{http.MethodGet},
+		},
+		{
 			template: "/eth/v1/beacon/pool/attestations",
 			name:     namespace + ".SubmitAttestations",
 			middleware: []middleware.Middleware{
@@ -639,6 +657,16 @@ func (s *Service) beaconEndpoints(
 				middleware.AcceptHeaderHandler([]string{api.JsonMediaType}),
 			},
 			handler: server.SubmitAttestations,
+			methods: []string{http.MethodPost},
+		},
+		{
+			template: "/eth/v2/beacon/pool/attestations",
+			name:     namespace + ".SubmitAttestationsV2",
+			middleware: []middleware.Middleware{
+				middleware.ContentTypeHandler([]string{api.JsonMediaType}),
+				middleware.AcceptHeaderHandler([]string{api.JsonMediaType}),
+			},
+			handler: server.SubmitAttestationsV2,
 			methods: []string{http.MethodPost},
 		},
 		{
