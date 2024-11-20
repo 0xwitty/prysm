@@ -24,6 +24,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Added GetAggregatedAttestationV2 endpoint.
 - Added SubmitAttestationsV2 endpoint.
 - Validator REST mode Electra block support
+- Added validator index label to `validator_statuses` metric
 - Better attestation packing for Electra. [PR](https://github.com/prysmaticlabs/prysm/pull/14534)
 
 ### Changed
@@ -55,6 +56,8 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Return early for blob reconstructor during capella fork
 - Updated block endpoint from V1 to V2
 - Rename instances of "deposit receipts" to "deposit requests".
+- non-blocking payload attribute event handling in beacon api [pr](https://github.com/prysmaticlabs/prysm/pull/14644)
+- Updated light client protobufs. [PR](https://github.com/prysmaticlabs/prysm/pull/14650)
 
 ### Deprecated
 
@@ -82,6 +85,8 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - unskip electra merkle spec test
 - Fix panic in validator REST mode when checking status after removing all keys
 - Fix panic on attestation interface since we call data before validation
+- corrects nil check on some interface attestation types
+
 
 ### Security
 
