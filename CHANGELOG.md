@@ -26,6 +26,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Validator REST mode Electra block support.
 - Added validator index label to `validator_statuses` metric.
 - Added Validator REST mode use of Attestation V2 endpoints and Electra attestations.
+- PeerDAS: Added proto for `DataColumnIdentifier`, `DataColumnSidecar`, `DataColumnSidecarsByRangeRequest` and `MetadataV2`.
 - Better attestation packing for Electra. [PR](https://github.com/prysmaticlabs/prysm/pull/14534)
 
 ### Changed
@@ -60,6 +61,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Non-blocking payload attribute event handling in beacon api [pr](https://github.com/prysmaticlabs/prysm/pull/14644).
 - Updated light client protobufs. [PR](https://github.com/prysmaticlabs/prysm/pull/14650)
 - Added `Eth-Consensus-Version` header to `ListAttestationsV2` and `GetAggregateAttestationV2` endpoints.
+- Updated light client consensus types. [PR](https://github.com/prysmaticlabs/prysm/pull/14652)
 
 ### Deprecated
 
@@ -88,6 +90,7 @@ The format is based on Keep a Changelog, and this project adheres to Semantic Ve
 - Fix panic in validator REST mode when checking status after removing all keys
 - Fix panic on attestation interface since we call data before validation
 - corrects nil check on some interface attestation types
+- temporary solution to handling electra attesation and attester_slashing events. [pr](14655)
 
 
 ### Security
