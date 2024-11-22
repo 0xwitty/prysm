@@ -180,6 +180,7 @@ func verifyConnectivity(addr string, port uint, protocol string) {
 	}
 }
 
+// ConvertPeerIDToNodeID converts a peer ID (libp2p) to a node ID (devp2p).
 func ConvertPeerIDToNodeID(pid peer.ID) (enode.ID, error) {
 	// Retrieve the public key object of the peer under "crypto" form.
 	pubkeyObjCrypto, err := pid.ExtractPublicKey()
