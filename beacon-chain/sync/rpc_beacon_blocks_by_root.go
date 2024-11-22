@@ -20,9 +20,9 @@ import (
 	"github.com/prysmaticlabs/prysm/v5/time/slots"
 )
 
-// sendRecentBeaconBlocksRequest sends a recent beacon blocks request to a peer to get
+// sendBeaconBlocksRequest sends a recent beacon blocks request to a peer to get
 // those corresponding blocks from that peer.
-func (s *Service) sendRecentBeaconBlocksRequest(ctx context.Context, requests *types.BeaconBlockByRootsReq, id peer.ID) error {
+func (s *Service) sendBeaconBlocksRequest(ctx context.Context, requests *types.BeaconBlockByRootsReq, id peer.ID) error {
 	ctx, cancel := context.WithTimeout(ctx, respTimeout)
 	defer cancel()
 
