@@ -95,7 +95,7 @@ func (s *Service) beaconBlocksByRangeRPCHandler(ctx context.Context, msg interfa
 	if err := batch.error(); err != nil {
 		log.WithError(err).Debug("Serving block by range request - BlocksByRange batch")
 
-		// If we hit a rate limit, the error response has already been written, and the stream is already closed.
+		// If a rate limit is hit, it means an error response has already been sent and the stream has been closed.
 		if !errors.Is(err, p2ptypes.ErrRateLimited) {
 			s.writeErrorResponseToStream(responseCodeServerError, p2ptypes.ErrGeneric.Error(), stream)
 		}
