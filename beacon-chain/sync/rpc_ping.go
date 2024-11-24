@@ -16,7 +16,7 @@ import (
 )
 
 // pingHandler reads the incoming ping rpc message from the peer.
-// If the peer's sequence number is higher than the one stored locally, 
+// If the peer's sequence number is higher than the one stored locally,
 // a METADATA request is sent to the peer to retrieve and update the latest metadata.
 // Note: This function is misnamed, as it performs more than just reading a ping message.
 func (s *Service) pingHandler(_ context.Context, msg interface{}, stream libp2pcore.Stream) error {
